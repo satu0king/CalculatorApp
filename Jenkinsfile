@@ -34,13 +34,13 @@ pipeline {
     stage('Deliver') {
       agent any
       steps {
-        sh 'docker build . -t calculator:1.0'
+        // sh 'docker build . -t calculator:1.0'
       }
     }
     stage('Building image') {
       steps{
         script {
-          docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
