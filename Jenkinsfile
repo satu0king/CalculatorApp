@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "docker_hub_account/repository_name"
+    registry = "satu0king/calculator_app"
     registryCredential = 'dockerhub'
   }
   agent none
