@@ -32,22 +32,25 @@ pipeline {
       }
     }
     stage('CD - DockerHub') {
-      stage('Building image') {
-        steps{
-          script {
-            dockerImage = docker.build registry + ":$BUILD_NUMBER"
+      stages{
+        stage('Building image') {
+          steps{
+            script {
+              dockerImage = docker.build registry + ":$BUILD_NUMBER"
+            }
           }
         }
-      }
-      stage('Publish Image') {
-        steps{
-          script {
-            docker.withRegistry( '', registryCredential ) {
-              dockerImage.push()
+        stage('Publish Image') {
+          steps{
+            script {
+              docker.withRegistry( '', registryCredential ) {
+                dockerImage.push()
+              }
             }
           }
         }
       }
+      
     }
   }
 }
