@@ -2,6 +2,7 @@ pipeline {
   environment {
     registry = "satu0king/calculator_app"
     registryCredential = 'dockerhub'
+    dockerImage = ''
   }
   agent none
   stages {
