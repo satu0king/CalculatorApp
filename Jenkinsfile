@@ -31,12 +31,12 @@ pipeline {
     //     }
     //   }
     // }
-    stage('Deliver') {
-      agent any
-      steps {
-        // sh 'docker build . -t calculator:1.0'
-      }
-    }
+    // stage('Deliver') {
+    //   agent any
+    //   steps {
+    //     sh 'docker build . -t calculator:1.0'
+    //   }
+    // }
     stage('Building image') {
       steps{
         script {
